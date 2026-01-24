@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://h0i0l7yrgr3s"]
+
+[ext_resource type="PackedScene" uid="uid://cfpiqd2o7alpm" path="res://level_objects/basic_platform.tscn" id="1_whpuv"]
+[ext_resource type="PackedScene" uid="uid://v2j0fj1opo15" path="res://player/crow.tscn" id="2_85hcc"]
+
+[node name="Sandbox" type="Node2D"]
+
+[node name="BasicPlatform" parent="." instance=ExtResource("1_whpuv")]
+position = Vector2(236.00002, 420)
+scale = Vector2(3.5199995, 1)
+
+[node name="Crow" parent="." instance=ExtResource("2_85hcc")]
+position = Vector2(257, 332)
+
+[node name="BasicPlatform2" parent="." instance=ExtResource("1_whpuv")]
+position = Vector2(539, 408)
