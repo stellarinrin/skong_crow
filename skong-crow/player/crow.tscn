@@ -3,8 +3,8 @@
 [ext_resource type="Texture2D" uid="uid://dxxcioa0r6asl" path="res://visual_assets/crow_stock1.png" id="1_7v3a5"]
 [ext_resource type="Script" uid="uid://cw854hwchw7xr" path="res://player/crow.gd" id="1_nkqc6"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_nkqc6"]
-radius = 55.00909
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nkqc6"]
+size = Vector2(58, 107)
 
 [node name="Crow" type="CharacterBody2D"]
 script = ExtResource("1_nkqc6")
@@ -15,4 +15,5 @@ scale = Vector2(0.22132796, 0.22132796)
 texture = ExtResource("1_7v3a5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_nkqc6")
+position = Vector2(-1, 0.5)
+shape = SubResource("RectangleShape2D_nkqc6")

@@ -7,10 +7,11 @@
 
 [node name="BasicPlatform" parent="." instance=ExtResource("1_whpuv")]
 position = Vector2(236.00002, 420)
-scale = Vector2(3.5199995, 1)
+scale = Vector2(25.809797, 1)
 
 [node name="Crow" parent="." instance=ExtResource("2_85hcc")]
 position = Vector2(257, 332)
 
 [node name="BasicPlatform2" parent="." instance=ExtResource("1_whpuv")]
-position = Vector2(539, 408)
+position = Vector2(695, 416)
+scale = Vector2(3.64, 0.6399989)
