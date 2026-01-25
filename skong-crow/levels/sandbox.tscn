@@ -6,12 +6,27 @@
 [node name="Sandbox" type="Node2D"]
 
 [node name="BasicPlatform" parent="." instance=ExtResource("1_whpuv")]
-position = Vector2(236.00002, 420)
-scale = Vector2(25.809797, 1)
+position = Vector2(280, 487)
+scale = Vector2(8.409793, 1)
 
 [node name="Crow" parent="." instance=ExtResource("2_85hcc")]
-position = Vector2(257, 332)
+position = Vector2(249, 371)
 
 [node name="BasicPlatform2" parent="." instance=ExtResource("1_whpuv")]
-position = Vector2(695, 416)
-scale = Vector2(3.64, 0.6399989)
+position = Vector2(825, 381)
+scale = Vector2(3.0016584, 0.6399989)
+
+[node name="BasicPlatform3" parent="." instance=ExtResource("1_whpuv")]
+position = Vector2(1296, 946)
+scale = Vector2(6.2405624, 12.84)
+
+[node name="BasicPlatform4" parent="." instance=ExtResource("1_whpuv")]
+position = Vector2(-21, 453.99997)
+scale = Vector2(1, 16.560001)
+
+[node name="BasicPlatform5" parent="." instance=ExtResource("1_whpuv")]
+position = Vector2(410, 1392)
+scale = Vector2(27.600002, 1)
+
+[node name="BasicPlatform6" parent="." instance=ExtResource("1_whpuv")]
+position = Vector2(467, 915)
