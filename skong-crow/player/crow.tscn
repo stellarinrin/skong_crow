@@ -737,6 +737,9 @@ libraries = {
 }
 
 [node name="Hitbox2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 4
+monitorable = false
 script = ExtResource("5_0v2il")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox2D"]
