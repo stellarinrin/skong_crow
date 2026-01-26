@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
-@onready var animations: AnimationPlayer = $AnimationPlayer
+@onready var movement_animations: AnimationPlayer = $MovementAnimations
+@onready var attack_animations: AnimationPlayer = $AttackAnimations
 @onready var sprite: Sprite2D = $Sprite2D
 
 @export var speed: int = 240
@@ -12,7 +13,7 @@ var dash_count: int = 0
 @export var gravity: int = 15
 @export var base_gravity: int = 15
 @export var float_speed: int = 4
-@export var wall_drag_speed: int = 1
+@export var climb_speed: int = 120
 
 @export var ground_jump_speed: int = -speed * 2
 @export var midair_jump_speed: int = -speed * 2
@@ -20,6 +21,7 @@ var dash_count: int = 0
 var midair_jump_count: int = 0
 
 var is_facing_left: bool = false
+var is_clinging: bool = false
 
 func _physics_process(delta: float) -> void:
 	handle_input()
@@ -41,57 +43,65 @@ func handle_input() -> void:
 	#Ground Jump
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = ground_jump_speed
-		animations.play("glide")
+		movement_animations.play("glide")
 	
 	#Falling
 	if not is_on_floor() and not is_on_wall():
 		gravity = base_gravity
-		animations.play("air")
-	elif is_on_wall():
-		gravity = wall_drag_speed
+		is_clinging = false
+		movement_animations.play("air")
+	elif is_on_wall() and direction != 0:
+		velocity.y = 0
+		is_clinging = true
 		dash_count = 0
 		midair_jump_count = 0
-		animations.play("ground")
+		movement_animations.play("ground")
+		if Input.is_action_pressed("ui_up"):
+			velocity.y = - climb_speed
+	elif is_on_wall() and direction == 0:
+		is_clinging = false
 	elif is_on_floor():
 		gravity = base_gravity
+		is_clinging = false
 		dash_count = 0
 		midair_jump_count = 0
-		animations.play("ground")
+		movement_animations.play("ground")
 
 	#Midair Jump
 	if Input.is_action_just_pressed("jump") and not is_on_floor() \
-			and midair_jump_count < max_midair_jumps:
+			and midair_jump_count < max_midair_jumps \
+			and not is_clinging:
 		velocity.y = midair_jump_speed
 		midair_jump_count += 1
-		animations.play("glide")
+		movement_animations.play("glide")
 	if is_on_floor():
 		dash_count = 0
 		midair_jump_count = 0
-		animations.play("ground")
+		movement_animations.play("ground")
 	
 	#Float / Glide
 	if Input.is_action_pressed("jump") and velocity.y > 0 \
 			and not is_on_floor() and not is_on_wall():
 		gravity = float_speed
-		animations.play("glide")
+		movement_animations.play("glide")
 
 	if (abs(velocity.x) - speed) > 0:
-		animations.play("glide")
+		movement_animations.play("glide")
 		
 	#Attack
 	if Input.is_action_pressed("ui_up") \
 			and Input.is_action_just_pressed("attack"):
-		animations.play("peck_up")
+		attack_animations.play("peck_up")
 	elif Input.is_action_pressed("ui_down") and not is_on_floor() \
 			and not is_on_wall() and Input.is_action_just_pressed("attack"):
-		animations.play("scratch_down")
+		attack_animations.play("scratch_down")
 	elif Input.is_action_just_pressed("attack") and not is_on_floor() \
 			and not is_on_wall():
-		animations.play("scratch")
+		attack_animations.play("scratch")
 	elif Input.is_action_just_pressed("attack") and is_on_floor():
-		animations.play("peck")
+		attack_animations.play("peck")
 	else:
-		animations.play("RESET")
+		attack_animations.play("RESET")
 		
 	if direction > 0:
 		if not is_facing_left:
