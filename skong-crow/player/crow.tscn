@@ -746,6 +746,9 @@ disabled = true
 debug_color = Color(0.97891766, 0, 0.39612246, 0.41960785)
 
 [node name="Hurtbox2D" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 0
+monitoring = false
 script = ExtResource("6_3v3kk")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox2D"]

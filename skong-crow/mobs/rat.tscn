@@ -1,0 +1,46 @@
+[gd_scene load_steps=7 format=3 uid="uid://cb4jlyatoqdjb"]
+
+[ext_resource type="Texture2D" uid="uid://dqrwv7qofnfc3" path="res://visual_assets/rat_stock1.png" id="1_f0x2r"]
+[ext_resource type="Script" uid="uid://42l3p3sww3l3" path="res://scripts/hitbox_2D.gd" id="2_wq5w1"]
+[ext_resource type="Script" uid="uid://cia2wkk7hcbn8" path="res://scripts/hurtbox_2D.gd" id="3_0dq7y"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t5v8o"]
+size = Vector2(69, 42)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cwmpv"]
+size = Vector2(71, 49.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nsx1w"]
+size = Vector2(74, 47)
+
+[node name="Rat" type="CharacterBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.1595092, 0.1595092)
+texture = ExtResource("1_f0x2r")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(16.5, 2)
+shape = SubResource("RectangleShape2D_t5v8o")
+
+[node name="Hitbox2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("2_wq5w1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox2D"]
+position = Vector2(102, 0)
+shape = SubResource("RectangleShape2D_cwmpv")
+disabled = true
+debug_color = Color(0.97891766, 0, 0.39612246, 0.41960785)
+
+[node name="Hurtbox2D" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 0
+monitoring = false
+script = ExtResource("3_0dq7y")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox2D"]
+position = Vector2(15, 1.5)
+shape = SubResource("RectangleShape2D_nsx1w")
+debug_color = Color(0, 0.6359856, 0.4143833, 0.41960785)
