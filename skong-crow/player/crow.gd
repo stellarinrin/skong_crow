@@ -12,6 +12,7 @@ var dash_count: int = 0
 @export var gravity: int = 15
 @export var base_gravity: int = 15
 @export var float_speed: int = 4
+@export var wall_drag_speed: int = 1
 
 @export var ground_jump_speed: int = -speed * 2
 @export var midair_jump_speed: int = -speed * 2
@@ -47,6 +48,7 @@ func handle_input() -> void:
 		gravity = base_gravity
 		animations.play("air")
 	elif is_on_wall():
+		gravity = wall_drag_speed
 		dash_count = 0
 		midair_jump_count = 0
 		animations.play("ground")
@@ -72,20 +74,36 @@ func handle_input() -> void:
 			and not is_on_floor() and not is_on_wall():
 		gravity = float_speed
 		animations.play("glide")
-		print(velocity.y)
 
 	if (abs(velocity.x) - speed) > 0:
 		animations.play("glide")
 		
+	#Attack
+	if Input.is_action_pressed("ui_up") \
+			and Input.is_action_just_pressed("attack"):
+		animations.play("peck_up")
+	elif Input.is_action_pressed("ui_down") and not is_on_floor() \
+			and not is_on_wall() and Input.is_action_just_pressed("attack"):
+		animations.play("scratch_down")
+	elif Input.is_action_just_pressed("attack") and not is_on_floor() \
+			and not is_on_wall():
+		animations.play("scratch")
+	elif Input.is_action_just_pressed("attack") and is_on_floor():
+		animations.play("peck")
+	else:
+		animations.play("RESET")
+		
 	if direction > 0:
 		if not is_facing_left:
 			return
-		sprite.flip_h = false
+		scale.x = -1
+		#sprite.flip_h = false
 		is_facing_left = false
 	elif direction < 0:
 		if is_facing_left:
 			return
-		sprite.flip_h = true
+		scale.x = -1
+		#sprite.flip_h = true
 		is_facing_left = true
 	
 	
