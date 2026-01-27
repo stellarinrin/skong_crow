@@ -10,9 +10,6 @@
 position = Vector2(280, 487)
 scale = Vector2(8.409793, 1)
 
-[node name="Crow" parent="." instance=ExtResource("2_85hcc")]
-position = Vector2(249, 371)
-
 [node name="BasicPlatform2" parent="." instance=ExtResource("1_whpuv")]
 position = Vector2(825, 381)
 scale = Vector2(3.0016584, 0.6399989)
@@ -34,3 +31,18 @@ position = Vector2(467, 915)
 
 [node name="Rat" parent="." instance=ExtResource("3_85hcc")]
 position = Vector2(493, 428)
+
+[node name="Crow" parent="." instance=ExtResource("2_85hcc")]
+position = Vector2(249, 371)
+
+[node name="Rat2" parent="." instance=ExtResource("3_85hcc")]
+position = Vector2(804, 332)
+
+[node name="Rat3" parent="." instance=ExtResource("3_85hcc")]
+position = Vector2(1156, 501)
+
+[node name="Rat4" parent="." instance=ExtResource("3_85hcc")]
+position = Vector2(92, 1329)
+
+[node name="Rat5" parent="." instance=ExtResource("3_85hcc")]
+position = Vector2(459, 857)

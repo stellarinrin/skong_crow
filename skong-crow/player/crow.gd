@@ -22,6 +22,9 @@ var midair_jump_count: int = 0
 
 var is_facing_left: bool = false
 var is_clinging: bool = false
+var attack_frames: int = 4
+var attack_frame_count: int = 0
+var is_attacking: bool = false
 
 func _physics_process(delta: float) -> void:
 	handle_input()
@@ -29,6 +32,12 @@ func _physics_process(delta: float) -> void:
 	velocity.y += gravity
 	
 func handle_input() -> void:
+	if is_attacking and attack_frame_count < attack_frames:
+		attack_frame_count += 1
+	else:
+		is_attacking = false
+		attack_frame_count = 0
+	
 	#Horizontal Movement
 	var direction = Input.get_axis("ui_left","ui_right")
 	
@@ -89,19 +98,26 @@ func handle_input() -> void:
 		movement_animations.play("glide")
 		
 	#Attack
-	if Input.is_action_pressed("ui_up") \
-			and Input.is_action_just_pressed("attack"):
-		attack_animations.play("peck_up")
-	elif Input.is_action_pressed("ui_down") and not is_on_floor() \
-			and not is_on_wall() and Input.is_action_just_pressed("attack"):
-		attack_animations.play("scratch_down")
-	elif Input.is_action_just_pressed("attack") and not is_on_floor() \
-			and not is_on_wall():
-		attack_animations.play("scratch")
-	elif Input.is_action_just_pressed("attack") and is_on_floor():
-		attack_animations.play("peck")
+	if is_attacking:
+		pass
 	else:
-		attack_animations.play("RESET")
+		if Input.is_action_pressed("ui_up") \
+				and Input.is_action_just_pressed("attack"):
+			is_attacking = true
+			attack_animations.play("peck_up")
+		elif Input.is_action_pressed("ui_down") and not is_on_floor() \
+				and not is_on_wall() and Input.is_action_just_pressed("attack"):
+			is_attacking = true
+			attack_animations.play("scratch_down")
+		elif Input.is_action_just_pressed("attack") and not is_on_floor() \
+				and not is_on_wall():
+			is_attacking = true
+			attack_animations.play("scratch")
+		elif Input.is_action_just_pressed("attack") and is_on_floor():
+			is_attacking = true
+			attack_animations.play("peck")
+		else:
+			attack_animations.play("RESET")
 		
 	if direction > 0:
 		if not is_facing_left:
@@ -115,5 +131,5 @@ func handle_input() -> void:
 		scale.x = -1
 		#sprite.flip_h = true
 		is_facing_left = true
-	
+		
 	
