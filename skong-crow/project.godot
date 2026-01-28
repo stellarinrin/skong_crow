@@ -11,9 +11,13 @@ config_version=5
 [application]
 
 config/name="skong_crow"
-run/main_scene="uid://ccmum3x80giil"
+run/main_scene="uid://ck1mjomob50ca"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[autoload]
+
+Global="*res://scripts/Global.gd"
 
 [display]
 

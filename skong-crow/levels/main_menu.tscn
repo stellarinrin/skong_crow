@@ -1,0 +1,197 @@
+[gd_scene load_steps=5 format=3 uid="uid://ccrweognkfakw"]
+
+[ext_resource type="Script" uid="uid://cfhl2v102ytjp" path="res://levels/main_menu.gd" id="1_0ettg"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_duh7t"]
+font_size = 128
+
+[sub_resource type="LabelSettings" id="LabelSettings_6ymyu"]
+font_size = 32
+font_color = Color(0, 0, 0, 1)
+outline_size = 1
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_7rktv"]
+font_size = 48
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0ettg")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Background" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.192, 0.19, 0.25, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="with append" type="Control" parent="CanvasLayer"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextPlate" type="ColorRect" parent="CanvasLayer/with append"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.1423611
+anchor_top = 0.23765433
+anchor_right = 0.8576389
+anchor_bottom = 0.7314815
+offset_left = 155.30556
+offset_top = 131.49382
+offset_right = 155.30556
+offset_bottom = 131.49382
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.6515541, 0.64708346, 0.7464841, 1)
+
+[node name="TextPlate2" type="ColorRect" parent="CanvasLayer/with append"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.18055555
+anchor_top = 0.36265433
+anchor_right = 0.8194444
+anchor_bottom = 0.6481481
+offset_left = 197.77777
+offset_top = 207.49382
+offset_right = 197.77777
+offset_bottom = 207.49384
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.45881492, 0.45326906, 0.5617991, 1)
+
+[node name="Title" type="Label" parent="CanvasLayer/with append"]
+layout_mode = 0
+offset_left = 218.0
+offset_top = 221.0
+offset_right = 921.0
+offset_bottom = 399.0
+text = "🐦‍⬛🎶💜🪽"
+label_settings = SubResource("LabelSettings_duh7t")
+
+[node name="Append" type="Label" parent="CanvasLayer/with append"]
+visible = false
+layout_mode = 0
+offset_left = 260.0
+offset_top = 164.0
+offset_right = 902.0
+offset_bottom = 209.0
+text = "BIRD            SONG            LOVE            WING"
+label_settings = SubResource("LabelSettings_6ymyu")
+
+[node name="TextPlate3" type="ColorRect" parent="CanvasLayer"]
+visible = false
+anchors_preset = -1
+anchor_left = 0.21527778
+anchor_top = 0.33487654
+anchor_right = 0.7847222
+anchor_bottom = 0.33796296
+offset_left = -3.0
+offset_top = -13.0
+offset_right = -3.0
+offset_bottom = -13.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.45881492, 0.45326906, 0.5617991, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="TitleBorder" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = -1
+anchor_left = 0.14583333
+anchor_top = 0.31944448
+anchor_right = 0.8541667
+anchor_bottom = 0.6805556
+offset_top = -27.000015
+offset_bottom = -27.00003
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+color = Color(0.6515541, 0.64708346, 0.7464841, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="TitlePlate" type="ColorRect" parent="CanvasLayer/TitleBorder"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.022058824
+anchor_top = 0.085470244
+anchor_right = 0.97794116
+anchor_bottom = 0.91452974
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.45881492, 0.45326906, 0.5617991, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="TitleText" type="Label" parent="CanvasLayer/TitleBorder/TitlePlate"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -351.5
+offset_top = -89.00001
+offset_right = 351.5
+offset_bottom = 89.00001
+grow_horizontal = 2
+grow_vertical = 2
+text = "🐦‍⬛🎶💜🪽"
+label_settings = SubResource("LabelSettings_duh7t")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="InstructionsBorder" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = -1
+anchor_left = 0.296875
+anchor_top = 0.43209878
+anchor_right = 0.703125
+anchor_bottom = 0.56790125
+offset_top = 182.0
+offset_bottom = 182.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+color = Color(0.657375, 0.65250003, 0.75, 0)
+metadata/_edit_use_anchors_ = true
+
+[node name="InstructionPlate" type="ColorRect" parent="CanvasLayer/InstructionsBorder"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.022058824
+anchor_top = 0.085470244
+anchor_right = 0.97794116
+anchor_bottom = 0.91452974
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.45892003, 0.4536, 0.56, 0)
+metadata/_edit_use_anchors_ = true
+
+[node name="InstructionText" type="Label" parent="CanvasLayer/InstructionsBorder/InstructionPlate"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -351.5
+offset_top = -89.00001
+offset_right = 351.5
+offset_bottom = 89.00001
+grow_horizontal = 2
+grow_vertical = 2
+text = "⇓ >> [⎵]∨[↵]"
+label_settings = SubResource("LabelSettings_7rktv")
+horizontal_alignment = 1
+vertical_alignment = 1

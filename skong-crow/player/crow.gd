@@ -1,5 +1,13 @@
 extends CharacterBody2D
 
+signal flap
+signal landed
+signal glide
+signal dash
+signal peck
+signal claw
+signal jump
+
 @onready var movement_animations: AnimationPlayer = $MovementAnimations
 @onready var attack_animations: AnimationPlayer = $AttackAnimations
 @onready var sprite: Sprite2D = $Sprite2D
@@ -47,6 +55,7 @@ func handle_input() -> void:
 		velocity.x = move_toward(velocity.x, 0, movement_acceleration)
 	elif Input.is_action_just_pressed("dash") and dash_count < max_dash_count:
 		velocity.x = dash_speed * direction
+		emit_signal("dash")
 		dash_count = 1
 	else:
 		velocity.x = move_toward(velocity.x, speed * direction, movement_acceleration)
@@ -55,6 +64,7 @@ func handle_input() -> void:
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = ground_jump_speed
 		movement_animations.play("glide")
+		emit_signal("jump")
 	
 	#Falling
 	if not is_on_floor() and not is_on_wall():
@@ -85,6 +95,7 @@ func handle_input() -> void:
 		velocity.y = midair_jump_speed
 		midair_jump_count += 1
 		movement_animations.play("glide")
+		emit_signal("flap")
 	if is_on_floor():
 		dash_count = 0
 		midair_jump_count = 0
@@ -95,6 +106,7 @@ func handle_input() -> void:
 			and not is_on_floor() and not is_on_wall():
 		gravity = float_speed
 		movement_animations.play("glide")
+		emit_signal("glide")
 
 	if (abs(velocity.x) - speed) > 0:
 		movement_animations.play("glide")
@@ -107,17 +119,21 @@ func handle_input() -> void:
 				and Input.is_action_just_pressed("attack"):
 			is_attacking = true
 			attack_animations.play("peck_up")
+			emit_signal("peck")
 		elif Input.is_action_pressed("ui_down") and not is_on_floor() \
 				and not is_on_wall() and Input.is_action_just_pressed("attack"):
 			is_attacking = true
 			attack_animations.play("scratch_down")
+			emit_signal("claw")
 		elif Input.is_action_just_pressed("attack") and not is_on_floor() \
 				and not is_on_wall():
 			is_attacking = true
 			attack_animations.play("scratch")
+			emit_signal("claw")
 		elif Input.is_action_just_pressed("attack") and is_on_floor():
 			is_attacking = true
 			attack_animations.play("peck")
+			emit_signal("peck")
 		else:
 			attack_animations.play("RESET")
 		
