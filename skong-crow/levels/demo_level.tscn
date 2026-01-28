@@ -1,0 +1,436 @@
+[gd_scene load_steps=10 format=3 uid="uid://ccmum3x80giil"]
+
+[ext_resource type="Script" uid="uid://cc4sngw74n760" path="res://levels/demo_level.gd" id="1_jo783"]
+[ext_resource type="PackedScene" uid="uid://v2j0fj1opo15" path="res://player/crow.tscn" id="1_u4xt3"]
+[ext_resource type="PackedScene" uid="uid://cfpiqd2o7alpm" path="res://level_objects/basic_platform.tscn" id="2_keei5"]
+[ext_resource type="PackedScene" uid="uid://dqju3rbksegre" path="res://level_objects/breakable.tscn" id="2_pjwgr"]
+[ext_resource type="PackedScene" uid="uid://cb4jlyatoqdjb" path="res://mobs/rat.tscn" id="3_keei5"]
+[ext_resource type="Script" uid="uid://dyr1i5cutf38r" path="res://scripts/basic_instructions.gd" id="4_ah2my"]
+[ext_resource type="Script" uid="uid://cxgjw6eothk8k" path="res://scripts/climb_instructions.gd" id="5_jo783"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pjwgr"]
+size = Vector2(273, 204)
+
+[sub_resource type="LabelSettings" id="LabelSettings_pjwgr"]
+font_size = 30
+
+[node name="DemoLevel" type="Node2D"]
+script = ExtResource("1_jo783")
+
+[node name="Rat2" parent="." instance=ExtResource("2_pjwgr")]
+position = Vector2(894, -786)
+scale = Vector2(1, 4.7199993)
+
+[node name="BasicPlatform6" parent="." instance=ExtResource("2_keei5")]
+position = Vector2(1175, -1924)
+scale = Vector2(68.68001, 3.7200007)
+
+[node name="IntroRoom" type="Node2D" parent="."]
+
+[node name="BasicPlatform" parent="IntroRoom" instance=ExtResource("2_keei5")]
+position = Vector2(-1, 120)
+scale = Vector2(30.680004, 3.7200007)
+
+[node name="BasicPlatform2" parent="IntroRoom" instance=ExtResource("2_keei5")]
+position = Vector2(-754.00006, -283)
+scale = Vector2(7.16, 8.88)
+
+[node name="BasicPlatform3" parent="IntroRoom" instance=ExtResource("2_keei5")]
+position = Vector2(751.00006, -283)
+scale = Vector2(7.16, 8.88)
+
+[node name="IntroPlatform" parent="IntroRoom" instance=ExtResource("2_keei5")]
+visible = false
+position = Vector2(234.00003, -263)
+scale = Vector2(5.0780945, -0.56000113)
+collision_layer = 0
+
+[node name="Drop1" type="Node2D" parent="."]
+
+[node name="BasicPlatform4" parent="Drop1" instance=ExtResource("2_keei5")]
+position = Vector2(-677.00006, -1187)
+scale = Vector2(9.560002, 19.32)
+
+[node name="BasicPlatform5" parent="Drop1" instance=ExtResource("2_keei5")]
+position = Vector2(97, -1187)
+scale = Vector2(9.400002, 19.32)
+
+[node name="Stripes" type="Node2D" parent="Drop1"]
+position = Vector2(0, -19)
+
+[node name="ColorRect" type="ColorRect" parent="Drop1/Stripes"]
+offset_left = -198.0
+offset_top = -1662.0
+offset_right = -158.0
+offset_bottom = -1072.709
+rotation = -1.5707964
+color = Color(0.8431839, 0.8431839, 0.84318376, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="Drop1/Stripes"]
+offset_left = -198.0
+offset_top = -1508.0
+offset_right = -158.0
+offset_bottom = -918.709
+rotation = -1.5707964
+color = Color(0.8431839, 0.8431839, 0.84318376, 1)
+
+[node name="ColorRect5" type="ColorRect" parent="Drop1/Stripes"]
+offset_left = -198.0
+offset_top = -1353.0
+offset_right = -158.0
+offset_bottom = -763.709
+rotation = -1.5707964
+color = Color(0.8431839, 0.8431839, 0.84318376, 1)
+
+[node name="ColorRect7" type="ColorRect" parent="Drop1/Stripes"]
+offset_left = -198.0
+offset_top = -1199.0
+offset_right = -158.0
+offset_bottom = -609.709
+rotation = -1.5707964
+color = Color(0.8431839, 0.8431839, 0.84318376, 1)
+
+[node name="ColorRect10" type="ColorRect" parent="Drop1/Stripes"]
+offset_left = -198.0
+offset_top = -1047.0
+offset_right = -158.0
+offset_bottom = -457.70898
+rotation = -1.5707964
+color = Color(0.8431839, 0.8431839, 0.84318376, 1)
+
+[node name="ColorRect12" type="ColorRect" parent="Drop1/Stripes"]
+offset_left = -198.0
+offset_top = -893.0
+offset_right = -158.0
+offset_bottom = -303.70898
+rotation = -1.5707964
+color = Color(0.8431839, 0.8431839, 0.84318376, 1)
+
+[node name="ColorRect14" type="ColorRect" parent="Drop1/Stripes"]
+offset_left = -198.0
+offset_top = -738.0
+offset_right = -158.0
+offset_bottom = -148.70898
+rotation = -1.5707964
+color = Color(0.8431839, 0.8431839, 0.84318376, 1)
+
+[node name="ColorRect16" type="ColorRect" parent="Drop1/Stripes"]
+offset_left = -198.0
+offset_top = -584.0
+offset_right = -158.0
+offset_bottom = 5.2910156
+rotation = -1.5707964
+color = Color(0.8431839, 0.8431839, 0.84318376, 1)
+
+[node name="Stripes2" type="Node2D" parent="Drop1"]
+position = Vector2(-769, -19)
+
+[node name="ColorRect" type="ColorRect" parent="Drop1/Stripes2"]
+offset_left = -198.0
+offset_top = -1662.0
+offset_right = -158.0
+offset_bottom = -1072.709
+rotation = -1.5707964
+color = Color(0.8431839, 0.8431839, 0.84318376, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="Drop1/Stripes2"]
+offset_left = -198.0
+offset_top = -1508.0
+offset_right = -158.0
+offset_bottom = -918.709
+rotation = -1.5707964
+color = Color(0.8431839, 0.8431839, 0.84318376, 1)
+
+[node name="ColorRect5" type="ColorRect" parent="Drop1/Stripes2"]
+offset_left = -198.0
+offset_top = -1353.0
+offset_right = -158.0
+offset_bottom = -763.709
+rotation = -1.5707964
+color = Color(0.8431839, 0.8431839, 0.84318376, 1)
+
+[node name="ColorRect7" type="ColorRect" parent="Drop1/Stripes2"]
+offset_left = -198.0
+offset_top = -1199.0
+offset_right = -158.0
+offset_bottom = -609.709
+rotation = -1.5707964
+color = Color(0.8431839, 0.8431839, 0.84318376, 1)
+
+[node name="ColorRect10" type="ColorRect" parent="Drop1/Stripes2"]
+offset_left = -198.0
+offset_top = -1047.0
+offset_right = -158.0
+offset_bottom = -457.70898
+rotation = -1.5707964
+color = Color(0.8431839, 0.8431839, 0.84318376, 1)
+
+[node name="ColorRect12" type="ColorRect" parent="Drop1/Stripes2"]
+offset_left = -198.0
+offset_top = -893.0
+offset_right = -158.0
+offset_bottom = -303.70898
+rotation = -1.5707964
+color = Color(0.8431839, 0.8431839, 0.84318376, 1)
+
+[node name="ColorRect14" type="ColorRect" parent="Drop1/Stripes2"]
+offset_left = -198.0
+offset_top = -738.0
+offset_right = -158.0
+offset_bottom = -148.70898
+rotation = -1.5707964
+color = Color(0.8431839, 0.8431839, 0.84318376, 1)
+
+[node name="ColorRect16" type="ColorRect" parent="Drop1/Stripes2"]
+offset_left = -198.0
+offset_top = -584.0
+offset_right = -158.0
+offset_bottom = 5.2910156
+rotation = -1.5707964
+color = Color(0.8431839, 0.8431839, 0.84318376, 1)
+
+[node name="BigRoom" type="Node2D" parent="."]
+
+[node name="BasicPlatform9" parent="BigRoom" instance=ExtResource("2_keei5")]
+position = Vector2(751.00006, -603)
+scale = Vector2(7.16, 1.2800002)
+
+[node name="BasicPlatform10" parent="BigRoom" instance=ExtResource("2_keei5")]
+position = Vector2(1705, -603)
+scale = Vector2(7.16, 1.2800002)
+
+[node name="BasicPlatform7" parent="BigRoom" instance=ExtResource("2_keei5")]
+position = Vector2(1678.0001, -179.99998)
+scale = Vector2(21.919996, 12.6)
+
+[node name="BasicPlatform11" parent="BigRoom" instance=ExtResource("2_keei5")]
+position = Vector2(837, -1002.00006)
+scale = Vector2(14.000002, 2.040001)
+
+[node name="BasicPlatform13" parent="BigRoom" instance=ExtResource("2_keei5")]
+position = Vector2(1237, -1104.0001)
+scale = Vector2(1.4799995, 1.2800002)
+
+[node name="BasicPlatform14" parent="BigRoom" instance=ExtResource("2_keei5")]
+position = Vector2(878.00006, -1428)
+rotation = -0.3926991
+scale = Vector2(5.3566236, 1.2800002)
+
+[node name="BasicPlatform15" parent="BigRoom" instance=ExtResource("2_keei5")]
+position = Vector2(1795, -1515.0001)
+rotation = -0.3926991
+scale = Vector2(5.3566236, 1.2800002)
+
+[node name="Drop2" type="Node2D" parent="."]
+
+[node name="Area2D" type="Area2D" parent="Drop2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Drop2/Area2D"]
+position = Vector2(2659, -1515)
+shape = SubResource("RectangleShape2D_pjwgr")
+
+[node name="BasicPlatform12" parent="Drop2" instance=ExtResource("2_keei5")]
+position = Vector2(2239.9998, -998)
+scale = Vector2(9.560002, 19.32)
+
+[node name="BasicPlatform16" parent="Drop2" instance=ExtResource("2_keei5")]
+position = Vector2(3048.9998, -998)
+scale = Vector2(9.560002, 25.560001)
+
+[node name="Stripes4" type="Node2D" parent="Drop2"]
+position = Vector2(2957, 170)
+
+[node name="ColorRect" type="ColorRect" parent="Drop2/Stripes4"]
+offset_left = -198.0
+offset_top = -1662.0
+offset_right = -158.0
+offset_bottom = -1072.709
+rotation = -1.5707964
+color = Color(0.8431839, 0.8431839, 0.84318376, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="Drop2/Stripes4"]
+offset_left = -198.0
+offset_top = -1508.0
+offset_right = -158.0
+offset_bottom = -918.709
+rotation = -1.5707964
+color = Color(0.8431839, 0.8431839, 0.84318376, 1)
+
+[node name="ColorRect5" type="ColorRect" parent="Drop2/Stripes4"]
+offset_left = -198.0
+offset_top = -1353.0
+offset_right = -158.0
+offset_bottom = -763.709
+rotation = -1.5707964
+color = Color(0.8431839, 0.8431839, 0.84318376, 1)
+
+[node name="ColorRect7" type="ColorRect" parent="Drop2/Stripes4"]
+offset_left = -198.0
+offset_top = -1199.0
+offset_right = -158.0
+offset_bottom = -609.709
+rotation = -1.5707964
+color = Color(0.8431839, 0.8431839, 0.84318376, 1)
+
+[node name="ColorRect10" type="ColorRect" parent="Drop2/Stripes4"]
+offset_left = -198.0
+offset_top = -1047.0
+offset_right = -158.0
+offset_bottom = -457.70898
+rotation = -1.5707964
+color = Color(0.8431839, 0.8431839, 0.84318376, 1)
+
+[node name="ColorRect12" type="ColorRect" parent="Drop2/Stripes4"]
+offset_left = -198.0
+offset_top = -893.0
+offset_right = -158.0
+offset_bottom = -303.70898
+rotation = -1.5707964
+color = Color(0.8431839, 0.8431839, 0.84318376, 1)
+
+[node name="ColorRect14" type="ColorRect" parent="Drop2/Stripes4"]
+offset_left = -198.0
+offset_top = -738.0
+offset_right = -158.0
+offset_bottom = -148.70898
+rotation = -1.5707964
+color = Color(0.8431839, 0.8431839, 0.84318376, 1)
+
+[node name="ColorRect16" type="ColorRect" parent="Drop2/Stripes4"]
+offset_left = -198.0
+offset_top = -584.0
+offset_right = -158.0
+offset_bottom = 5.2910156
+rotation = -1.5707964
+color = Color(0.8431839, 0.8431839, 0.84318376, 1)
+
+[node name="Stripes3" type="Node2D" parent="Drop2"]
+position = Vector2(2148, 170)
+
+[node name="ColorRect" type="ColorRect" parent="Drop2/Stripes3"]
+offset_left = -198.0
+offset_top = -1662.0
+offset_right = -158.0
+offset_bottom = -1072.709
+rotation = -1.5707964
+color = Color(0.8431839, 0.8431839, 0.84318376, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="Drop2/Stripes3"]
+offset_left = -198.0
+offset_top = -1508.0
+offset_right = -158.0
+offset_bottom = -918.709
+rotation = -1.5707964
+color = Color(0.8431839, 0.8431839, 0.84318376, 1)
+
+[node name="ColorRect5" type="ColorRect" parent="Drop2/Stripes3"]
+offset_left = -198.0
+offset_top = -1353.0
+offset_right = -158.0
+offset_bottom = -763.709
+rotation = -1.5707964
+color = Color(0.8431839, 0.8431839, 0.84318376, 1)
+
+[node name="ColorRect7" type="ColorRect" parent="Drop2/Stripes3"]
+offset_left = -198.0
+offset_top = -1199.0
+offset_right = -158.0
+offset_bottom = -609.709
+rotation = -1.5707964
+color = Color(0.8431839, 0.8431839, 0.84318376, 1)
+
+[node name="ColorRect10" type="ColorRect" parent="Drop2/Stripes3"]
+offset_left = -198.0
+offset_top = -1047.0
+offset_right = -158.0
+offset_bottom = -457.70898
+rotation = -1.5707964
+color = Color(0.8431839, 0.8431839, 0.84318376, 1)
+
+[node name="ColorRect12" type="ColorRect" parent="Drop2/Stripes3"]
+offset_left = -198.0
+offset_top = -893.0
+offset_right = -158.0
+offset_bottom = -303.70898
+rotation = -1.5707964
+color = Color(0.8431839, 0.8431839, 0.84318376, 1)
+
+[node name="ColorRect14" type="ColorRect" parent="Drop2/Stripes3"]
+offset_left = -198.0
+offset_top = -738.0
+offset_right = -158.0
+offset_bottom = -148.70898
+rotation = -1.5707964
+color = Color(0.8431839, 0.8431839, 0.84318376, 1)
+
+[node name="ColorRect16" type="ColorRect" parent="Drop2/Stripes3"]
+offset_left = -198.0
+offset_top = -584.0
+offset_right = -158.0
+offset_bottom = 5.2910156
+rotation = -1.5707964
+color = Color(0.8431839, 0.8431839, 0.84318376, 1)
+
+[node name="basic_instructions" type="Label" parent="."]
+offset_left = -381.0
+offset_top = -319.0
+offset_right = -138.0
+offset_bottom = -142.0
+text = "↑ ← ↓ → - 🏃‍♀️
+    ⎵ / Z - 🔼
+           X - 👊
+"
+label_settings = SubResource("LabelSettings_pjwgr")
+script = ExtResource("4_ah2my")
+
+[node name="climb_instructions" type="Label" parent="."]
+visible = false
+offset_left = 128.0
+offset_top = -459.0
+offset_right = 371.0
+offset_bottom = -282.0
+text = "        → + ↑ - 🧗‍♀️
+☁️,  ⎵ / Z - ⏫
+   ⎵ / Z ~~ - 🪽
+"
+label_settings = SubResource("LabelSettings_pjwgr")
+script = ExtResource("5_jo783")
+
+[node name="Rat" parent="." instance=ExtResource("3_keei5")]
+position = Vector2(-361, -25)
+
+[node name="Crow" parent="." instance=ExtResource("1_u4xt3")]
+position = Vector2(-261, -1412)
+
+[node name="Rat3" parent="." instance=ExtResource("3_keei5")]
+position = Vector2(1191, -615)
+
+[node name="Rat4" parent="." instance=ExtResource("3_keei5")]
+position = Vector2(-307, -1774)
+
+[node name="Rat5" parent="." instance=ExtResource("3_keei5")]
+position = Vector2(708, -1122)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+follow_viewport_enabled = true
+
+[node name="Main Menu" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.192, 0.19, 0.25, 1)
+
+[node name="Game End" type="ColorRect" parent="CanvasLayer"]
+visible = false
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Textbox" type="ColorRect" parent="CanvasLayer"]
+visible = false
+offset_right = 40.0
+offset_bottom = 40.0
+
+[connection signal="area_entered" from="Drop2/Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="rat_killed" from="Rat" to="." method="_on_rat_rat_killed"]

@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="skong_crow"
-run/main_scene="uid://h0i0l7yrgr3s"
+run/main_scene="uid://ccmum3x80giil"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 config/icon="res://icon.svg"
 

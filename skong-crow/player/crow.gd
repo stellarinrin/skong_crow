@@ -26,6 +26,8 @@ var attack_frames: int = 4
 var attack_frame_count: int = 0
 var is_attacking: bool = false
 
+var has_climb: bool = false
+
 func _physics_process(delta: float) -> void:
 	handle_input()
 	move_and_slide()
@@ -59,7 +61,7 @@ func handle_input() -> void:
 		gravity = base_gravity
 		is_clinging = false
 		movement_animations.play("air")
-	elif is_on_wall() and direction != 0:
+	elif is_on_wall() and direction != 0 and has_climb:
 		velocity.y = 0
 		is_clinging = true
 		dash_count = 0

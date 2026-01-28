@@ -22,7 +22,7 @@ script = ExtResource("6_tahb6")
 metadata/_custom_type_script = "uid://c7a3kuwd5uo7b"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nsx1w"]
-size = Vector2(74, 47)
+size = Vector2(68, 66)
 
 [node name="Rat" type="CharacterBody2D"]
 script = ExtResource("1_0dq7y")
