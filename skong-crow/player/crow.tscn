@@ -734,7 +734,7 @@ shape = SubResource("RectangleShape2D_nkqc6")
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
 drag_top_margin = 0.4
-drag_bottom_margin = 0.4
+drag_bottom_margin = 0.1
 
 [node name="MovementAnimations" type="AnimationPlayer" parent="."]
 libraries = {
